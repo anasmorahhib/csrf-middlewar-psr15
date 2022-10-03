@@ -9,5 +9,8 @@
     <file>tests</file>
 
     <rule ref="PSR2"></rule>
+    <rule ref="PSR12">
+        <type>warning</type>
+    </rule>
 
 </ruleset>

@@ -11,7 +11,6 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class CsrfMiddleware implements MiddlewareInterface
 {
-
     /**
      * @var array|\ArrayAccess
      */
@@ -57,12 +56,12 @@ class CsrfMiddleware implements MiddlewareInterface
     /**
      * @param ServerRequestInterface $request
      * @param RequestHandlerInterface $handler
-     * 
+     *
      * @return ResponseInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        if (in_array($request->getMethod(), ['GET', 'POST'], true)) {
+        if (in_array($request->getMethod(), ['GET', 'POST', 'DELETE', 'PATCH'], true)) {
             $params = $request->getParsedBody() ?: [];
             if (!array_key_exists($this->formKey, $params)) {
                 throw new NoCsrfException();
@@ -92,9 +91,9 @@ class CsrfMiddleware implements MiddlewareInterface
 
     /**
      * @param mixed $session
-     * 
+     *
      * @return void
-     * 
+     *
      * @throws \TypeError
      */
     private function testSession($session): void
@@ -107,7 +106,7 @@ class CsrfMiddleware implements MiddlewareInterface
 
     /**
      * @param string $token
-     * 
+     *
      * @return void
      */
     private function removeToken(string $token): void
@@ -122,7 +121,7 @@ class CsrfMiddleware implements MiddlewareInterface
 
     /**
      * @param array $tokens
-     * 
+     *
      * @return array
      */
     private function limitTokens(array $tokens): array

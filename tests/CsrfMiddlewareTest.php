@@ -12,7 +12,6 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class CsrfMiddlewareTest extends TestCase
 {
-
     private function makeMiddleware(&$session = [])
     {
         return new CsrfMiddleware($session);
@@ -56,7 +55,7 @@ class CsrfMiddlewareTest extends TestCase
         $middlewarea = $this->makeMiddleware($a);
     }
 
-    function testGetPass()
+    public function testGetPass()
     {
         $middleware = $this->makeMiddleware();
         $token = $middleware->generateToken();
@@ -66,7 +65,7 @@ class CsrfMiddlewareTest extends TestCase
         $middleware->process($this->makeRequest('GET', ['_csrf' => $token]), $handler);
     }
 
-    function testPreventPost()
+    public function testPreventPost()
     {
         $middleware = $this->makeMiddleware();
         $handler = $this->makeRequestHandler();
@@ -75,7 +74,7 @@ class CsrfMiddlewareTest extends TestCase
         $middleware->process($this->makeRequest('POST'), $handler);
     }
 
-    function testPostSuceessfullyWithToken()
+    public function testPostSuceessfullyWithToken()
     {
         $middleware = $this->makeMiddleware();
         $token = $middleware->generateToken();
@@ -85,7 +84,7 @@ class CsrfMiddlewareTest extends TestCase
         $middleware->process($this->makeRequest('POST', ['_csrf' => $token]), $handler);
     }
 
-    function testPostErrorWithToken()
+    public function testPostErrorWithToken()
     {
         $middleware = $this->makeMiddleware();
         $token = 'fake token';
