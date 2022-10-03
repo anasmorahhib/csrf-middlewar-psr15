@@ -1,0 +1,25 @@
+{
+    "name": "morahhib/csrf",
+    "description": "middleware to prevent csrf using PSR15",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anas Morahhib",
+            "email": "anass.morahhib@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Morahhib\\Csrf\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">= 7.1.0",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
