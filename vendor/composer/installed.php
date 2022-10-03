@@ -3,7 +3,7 @@
         'name' => 'morahhib/csrf',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '356785125a7731dcf74c4e6ec9bc1ae31b846f00',
+        'reference' => 'db3d092cd0878c217d86468d3e0cf134abdb8028',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -49,7 +49,7 @@
         'morahhib/csrf' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '356785125a7731dcf74c4e6ec9bc1ae31b846f00',
+            'reference' => 'db3d092cd0878c217d86468d3e0cf134abdb8028',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
